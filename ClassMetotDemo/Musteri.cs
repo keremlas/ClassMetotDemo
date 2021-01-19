@@ -8,6 +8,5 @@ namespace ClassMetotDemo
     {
         public int Id;
         public string adSoyad;
-
     }
 }

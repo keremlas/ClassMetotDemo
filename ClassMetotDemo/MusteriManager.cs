@@ -10,33 +10,20 @@ namespace ClassMetotDemo
         {
             while (adding)
             {
-                try
+                var yeniMusteri = new Musteri();
+                Console.WriteLine("Lütfen müşterinin ID'sini giriniz.");
+                yeniMusteri.Id = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Lütfen müşterinin adını ve soyadını giriniz.");
+                yeniMusteri.adSoyad = Console.ReadLine();
+                musteriler.Add(yeniMusteri);
+                Console.WriteLine("\nMüşteri ID: {0}, Müşteri ad ve soyadı: {1}\n", yeniMusteri.Id, yeniMusteri.adSoyad);
+                Console.WriteLine("Yeni müşteri eklemek istiyor musunuz? e/h");
+                var addingAnswer = Console.ReadLine();
+                if (addingAnswer == "h")
                 {
-                    var yeniMusteri = new Musteri();
-
-                    yeniMusteri.Id = Util.Console.AskInt("Lütfen müşteri ID'sini giriniz.");
-                    yeniMusteri.adSoyad = Util.Console.Ask("Lütfen müşterinin ad ve soyadını giriniz.");
-                    musteriler.Add(yeniMusteri);
-
-                    Console.WriteLine("\nMüşteri ID: {0}, Müşteri ad ve soyadı: {1}\n", yeniMusteri.Id, yeniMusteri.adSoyad);
-
-                    Console.WriteLine("Yeni müşteri eklemek istiyor musunuz? e/h");
-                    var addingAnswer = Console.ReadLine();
-                    if (addingAnswer == "h")
-                    {
-                        adding = false;
-                    }
+                    adding = false;
                 }
-                catch(FormatException msg)
-                {
-                    Console.WriteLine(msg.Message);
-                }
-                catch (Exception)
-                {
-
-                    Console.WriteLine("Müşteri eklemede bir hata oluştu. Lütfen tekrar deneyiniz.");
-                }
-                
             }
 
 
